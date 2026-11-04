@@ -1,0 +1,78 @@
+{
+    "name": "beziworld/laravel-allegro",
+    "description": "Allegro REST API client for Laravel: OAuth2 (code with PKCE, device flow, client credentials), multiple seller accounts, orders and offer event polling, fulfillment, tracking numbers, Wysylam z Allegro shipments, billing, messaging and returns.",
+    "keywords": ["laravel","allegro","marketplace","ecommerce","oauth2","orders","offers","poland"],
+    "homepage": "https://github.com/beziworld/laravel-allegro",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Kamil Ćwiertnia",
+            "email": "biuro@beziworld.eu",
+            "homepage": "https://beziworld.eu",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/beziworld/laravel-allegro/issues",
+        "source": "https://github.com/beziworld/laravel-allegro"
+    },
+    "require": {
+        "php": "^8.3",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.8",
+        "illuminate/console": "^12.0|^13.0",
+        "illuminate/contracts": "^12.0|^13.0",
+        "illuminate/http": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0",
+        "psr/log": "^2.0|^3.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.18",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.7|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0",
+        "phpstan/phpstan-strict-rules": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Beziworld\\Allegro\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Beziworld\\Allegro\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "test-coverage": "pest --coverage --min=80",
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "format": "pint",
+        "lint": "pint --test",
+        "ci": [
+            "@lint",
+            "@analyse",
+            "@test"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Beziworld\\Allegro\\AllegroServiceProvider"
+            ],
+            "aliases": {
+                "Allegro": "Beziworld\\Allegro\\Facades\\Allegro"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
